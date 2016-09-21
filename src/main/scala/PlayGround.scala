@@ -1,4 +1,4 @@
-import iterative.{Even, Odd, Solution}
+import iterative.{Odd, Solution}
 
 object PlayGround {
     def main(args: Array[String]): Unit = {

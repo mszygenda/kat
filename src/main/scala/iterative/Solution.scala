@@ -7,7 +7,7 @@ object Solution {
     def solution(str: String): Int = {
         sumWithDefaultLimit(
             calculateRadiuses(1, str, new Array[Int](str.size), Odd).foldLeft(0)(sumWithDefaultLimit),
-            calculateRadiuses(1, str, new Array[Int](str.size), Even).foldLeft(0)(sumWithDefaultLimit)
+            calculateRadiuses(1, str, new Array[Int](str.size + 1), Even).foldLeft(0)(sumWithDefaultLimit)
         )
     }
 
@@ -38,7 +38,7 @@ object Solution {
     private def mirrorEasyCasesIter(k: Int, center: Int, radiuses: Array[Int]): Int = {
         val radius = radiuses(center)
 
-        if (k > radius || center + k == radiuses.size) {
+        if (k > radius) {
             k
         } else if (radiuses(center - k) == radius - k) {
             radiuses.update(center + k, radius - k)
